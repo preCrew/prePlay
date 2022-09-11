@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "lib":[
+            "ES5",
+            "ES2015",
+            "DOM"//web 사용
+        ],
+      "moduleResolution": "node",
+      "jsx":"react",   
+      "esModuleInterop": true ,
+      "experimentalDecorators": true,
+      "baseUrl": ".",
+      "paths": {
+        "@src/*": ["src/*"],
+      }      
+    }
+  }
