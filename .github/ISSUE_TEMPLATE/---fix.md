@@ -2,7 +2,7 @@
 name: "\U0001F528 Fix"
 about: 코드 수정시 작성
 title: "[FIX] "
-labels: ''
+labels: fix
 assignees: ''
 
 ---
