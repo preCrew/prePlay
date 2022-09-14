@@ -7,7 +7,7 @@
             "DOM"//web 사용
         ],
       "moduleResolution": "node",
-      "jsx":"react",   
+      "jsx":"react-jsx",   
       "esModuleInterop": true ,
       "experimentalDecorators": true,
       "baseUrl": ".",
