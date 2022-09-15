@@ -1,12 +1,11 @@
 {
   "name": "preplay",
   "version": "1.0.0",
-
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --env development",
-    "watch":"npx tailwindcss -i ./src/styles/global.css -o ./dist/style.css --watch"
+    "watch": "npx tailwindcss -i ./src/styles/global.css -o ./dist/style.css --watch"
   },
   "repository": {
     "type": "git",
@@ -29,6 +28,7 @@
     "@types/redux": "^3.6.0",
     "@types/styled-components": "^5.1.25",
     "@types/webpack": "^5.28.0",
+    "firebase": "^9.9.4",
     "fork-ts-checker-webpack-plugin": "^7.2.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
