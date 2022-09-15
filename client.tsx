@@ -8,13 +8,17 @@ import { store } from '@src/store/store';
 import App from '@src/pages/';
 import '@src/assets/font.css';
 import '@src/styles/global.css';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+const queryClient = new QueryClient();
 const container = document.querySelector('#root');
 
-createRoot(container!).render(
+createRoot(container as Element).render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </QueryClientProvider>
   </Provider>,
 );
