@@ -7,6 +7,9 @@ module.exports = {
         medium: 500,
         bold: 700,
       },
+      colors: {
+        primary1: '#737bc5',
+      },
     },
   },
 
