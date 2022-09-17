@@ -7,6 +7,9 @@ module.exports = {
         medium: 500,
         bold: 700,
       },
+      gridTemplateColumns: {
+        'auto-fit': 'repeat(auto-fit, 318px)',
+      },
     },
   },
 
