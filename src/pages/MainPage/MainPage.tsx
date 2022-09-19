@@ -1,5 +1,5 @@
 import React from 'react';
-import heartF from '../../assets/heartFlat.png';
+import heartF from '@src/assets/heartFlat.png';
 
 interface MainPageProps {}
 

@@ -10,6 +10,9 @@ module.exports = {
       gridTemplateColumns: {
         'auto-fit': 'repeat(auto-fit, 318px)',
       },
+      screens: {
+        sm: '0px',
+      },
     },
   },
 
