@@ -1,5 +1,6 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { TLoadingState } from './common.interface';
+import { v1 as uuidv1 } from 'uuid';
 
 export interface TUser {
   isLogin: boolean;
@@ -13,6 +14,24 @@ export interface TUser {
     updateUserInfo: TLoadingState | Record<string, unknown>;
   };
 }
+
+const dummyUserData = (data: number) =>
+  Array(data)
+    .fill(0)
+    .map(() => ({
+      id: uuidv1(),
+      isLogin: false,
+      uid: '',
+      loadingState: {
+        createUser: {},
+        loginUser: {},
+        logoutUser: {},
+        readUserInfo: {},
+        updateUserInfo: {},
+      },
+      email: '',
+    }));
+dummyUserData(20);
 
 const initialUserState: TUser = {
   isLogin: false,
