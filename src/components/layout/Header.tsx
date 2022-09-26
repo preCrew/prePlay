@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import user from '@src/assets/user.png';
 import search from '@src/assets/search.png';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [menuToggle, setMenuToggle] = useState(false);
@@ -59,12 +60,14 @@ const Header = () => {
           </div>
 
           <div className="w-full absolute top-[33px] left-[3%]">
-            <button className=" border-0 py-3 invisible lg:visible leading-none text-xl bg-transparent mr-2  w-[15px]">
-              <img
-                src={user}
-                alt="user"
-              ></img>
-            </button>
+            <Link to="/login">
+              <button className=" border-0 py-3 invisible lg:visible leading-none text-xl bg-transparent mr-2  w-[15px]">
+                <img
+                  src={user}
+                  alt="user"
+                ></img>
+              </button>
+            </Link>
             <button className="ml-[34px] border-0 py-3 invisible lg:visible leading-none text-xl bg-transparent mr-2  w-[15px]">
               <img
                 src={search}
