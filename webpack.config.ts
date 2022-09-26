@@ -67,6 +67,7 @@ const webpackConfig: Configuration = {
     devMiddleware: { publicPath: '/dist' },
     static: { directory: path.resolve(__dirname) },
     hot: true,
+    historyApiFallback: true, //존재하지 않는 url일경우 -> index.html
   },
 };
 
