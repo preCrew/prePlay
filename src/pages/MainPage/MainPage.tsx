@@ -63,7 +63,7 @@ const MainPage = ({}: MainPageProps) => {
     },
   ];
   return (
-    <div className="grid justify-center w-screen h-full bg-gray-600 gap-x-[27px] gap-y-[30px] grid-cols-auto-fit justify-items-center pr-[48px] pl-[39px]">
+    <div className="grid justify-center w-screen h-full bg-gray-600 gap-x-[27px] gap-y-[30px] grid-cols-auto-fit justify-items-center pr-[48px] pl-[39px] mt-[19px]">
       {items.map((item, key) => (
         <>
           <div className="relative m-1 bg-black w-full  h-[327px] rounded-[10px] ">
