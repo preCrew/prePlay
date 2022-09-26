@@ -72,7 +72,7 @@ const Header = () => {
               ></img>
             </button>
             <input
-              className="ml-[8px] text-[15px] font-[Inter] sm:invisible lg:visible "
+              className="ml-[8px] text-[15px] font-[Inter] invisible lg:visible "
               type="text"
               placeholder="SEARCH FOR MUSIC TAG"
             />

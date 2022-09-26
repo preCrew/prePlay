@@ -9,15 +9,28 @@ const App = () => {
     <div>
       <Routes>
         <Route
+          path="/"
+          element={
+            <>
+              <Header /> <MainPage />
+            </>
+          }
+        />
+      </Routes>
+
+      <Routes>
+        <Route
           path="/view"
           element={<View />}
         />
       </Routes>
-      <Link to="/view">
-        <button>임시 상세페이지</button>
-      </Link>
-      <Header />
-      <LoginPage />
+
+      <Routes>
+        <Route
+          path="/login"
+          element={<LoginPage />}
+        />
+      </Routes>
     </div>
   );
 };

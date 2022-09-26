@@ -23,6 +23,9 @@ module.exports = {
       borderRadius: {
         basic: '0.5rem',
       },
+      gridTemplateColumns: {
+        'auto-fit': 'repeat(auto-fit, 318px)',
+      },
     },
   },
 

@@ -1,6 +1,6 @@
 import CommentList from '@src/components/Comment';
 import CommentForm from '@src/components/Comment/CommentForm';
-import Heart from '@src/components/Common/Button/Heart';
+import Heart from '@src/components/common/Button/Heart';
 import React from 'react';
 
 const Post = () => {
