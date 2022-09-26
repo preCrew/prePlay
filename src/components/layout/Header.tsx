@@ -11,7 +11,7 @@ const Header = () => {
     <header>
       <nav className="mxs-7 relative">
         <div className="flex items-center m-3 pt-3 space-between ">
-          {/* mobile menu */}
+          {/* mobile hamburger S*/}
           <div className="lg:hidden items-center absolute space-x-4">
             <button
               className=" inline-flex rounded lg:hidden ml-auto outline-none"
@@ -50,7 +50,9 @@ const Header = () => {
               )}
             </button>
           </div>
+          {/* mobile hamburger E*/}
 
+          {/* LOGO */}
           <div className=" px-6 w-full flex space-x-6 flex-wrap items-center flex-row justify-center">
             <div className="flex flex-row justify-center ">
               <div className="font-[Monoton] text-[#787bc5] text-[28px] ">
@@ -59,6 +61,7 @@ const Header = () => {
             </div>
           </div>
 
+          {/* PC Menu items */}
           <div className="w-full absolute top-[33px] left-[3%]">
             <Link to="/login">
               <button className=" border-0 py-3 invisible lg:visible leading-none text-xl bg-transparent mr-2  w-[15px]">
@@ -82,22 +85,22 @@ const Header = () => {
           </div>
         </div>
       </nav>
+
       {/* mobile menu items */}
       <div className={classNames({ hidden: !menuToggle })}>
         <>
-          {console.log(menuToggle)}
-          <a
-            href="#"
+          <Link
+            to="/Login"
             className="block py-2 px-4 text-sm hover:bg-gray-200"
           >
             User
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="#"
             className="block py-2 px-4 text-sm hover:bg-gray-200"
           >
             Search
-          </a>
+          </Link>
         </>
       </div>
     </header>
