@@ -1,7 +1,7 @@
-import React from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import Header from '@src/components/layout/Header';
-import View from '@src/pages/post';
+import LoginPage from './LoginPage';
+import View from './post';
 
 const App = () => {
   return (
@@ -16,6 +16,7 @@ const App = () => {
         <button>임시 상세페이지</button>
       </Link>
       <Header />
+      <LoginPage />
     </div>
   );
 };
