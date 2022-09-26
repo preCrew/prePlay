@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 import { TypedUseSelectorHook, useDispatch } from 'react-redux';
 
-import userReducer from './reducers/use-Slice';
+import userReducer from './reducers/user-Slice';
 import postReducer from './reducers/post-Slice';
 
 export const store = configureStore({

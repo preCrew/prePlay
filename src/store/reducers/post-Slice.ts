@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { TLoadingState } from './common.interface';
-import { v1 as uuidv1 } from 'uuid';
+import shortid from 'shortid';
 
 export interface TPost {}
 
@@ -8,7 +8,7 @@ const dummyPostData = (data: number) =>
   Array(data)
     .fill(0)
     .map(() => ({
-      id: uuidv1(),
+      id: shortid.generate(),
       Comment: [],
       Liker: [],
     }));
