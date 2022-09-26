@@ -64,7 +64,7 @@ const MainPage = ({}: MainPageProps) => {
     },
   ];
   return (
-    <div className="grid justify-center w-screen h-full bg-gray-600 gap-x-[27px] gap-y-[30px] grid-cols-auto-fit justify-items-center pr-[48px] pl-[39px] mt-[19px]">
+    <div className="grid justify-center w-screen h-full bg-gray-600 gap-x-[27px] gap-y-[30px] grid-cols-auto-fit justify-items-center pr-[48px] pl-[39px] mt-[19px] min-w-fit">
       {items.map((item, key) => (
         <Link
           to="/view"

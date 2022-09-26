@@ -9,7 +9,7 @@ const Header = () => {
 
   return (
     <header>
-      <nav className="mxs-7 relative">
+      <nav className="mx-7 relative min-w-fit">
         <div className="flex items-center m-3 pt-3 space-between ">
           {/* mobile hamburger S*/}
           <div className="lg:hidden items-center absolute space-x-4">
