@@ -1,14 +1,23 @@
+import { useParams } from 'react-router-dom';
+import { useAppSelector } from '@src/store/store';
 import CommentList from '@src/components/Comment';
 import CommentForm from '@src/components/Comment/CommentForm';
 import Heart from '@src/components/common/Button/Heart';
-import React from 'react';
 
 const Post = () => {
+  const { id } = useParams();
+  const { posts } = useAppSelector(state => state.post);
+  const me = useAppSelector(state => state.user);
+
   return (
     <div>
       <div className="flex justify-between py-8 m-auto px-7 md:w-4/5 ">
         <h2>playlist1/talk that talk-트와이스</h2>
-        <Heart />
+        <Heart
+          postId={id!}
+          posts={posts}
+          me={me}
+        />
       </div>
       <div className="max-w-[644px] m-auto px-7">
         <section className="mb-7">
@@ -31,12 +40,13 @@ const Post = () => {
                   <a href="">#해시태그</a>
                 </li>
               </ul> */}
-              <button
-                type="button"
-                className="absolute top-0 right-3"
-              >
-                <Heart />
-              </button>
+              <Heart
+                onClickHeart={true}
+                styleProperty="absolute right-3 top-0"
+                postId={id!}
+                posts={posts}
+                me={me}
+              />
             </div>
           </article>
         </section>
