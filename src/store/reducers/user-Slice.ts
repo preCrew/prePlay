@@ -2,7 +2,9 @@ import { createSlice } from '@reduxjs/toolkit';
 import { TLoadingState } from './common.interface';
 import shortid from 'shortid';
 
-export interface TUser {}
+export interface TUser {
+  id: string;
+}
 
 const dummyUserData = () => ({
   id: shortid.generate(),
