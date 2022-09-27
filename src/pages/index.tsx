@@ -16,16 +16,10 @@ const App = () => {
             </>
           }
         />
-      </Routes>
-
-      <Routes>
         <Route
           path="/view"
           element={<View />}
         />
-      </Routes>
-
-      <Routes>
         <Route
           path="/login"
           element={<LoginPage />}
