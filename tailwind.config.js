@@ -1,3 +1,8 @@
+const px0_10 = { ...Array.from(Array(11)).map((_, i) => `${i}px`) };
+const px0_100 = { ...Array.from(Array(101)).map((_, i) => `${i}px`) };
+const px0_200 = { ...Array.from(Array(201)).map((_, i) => `${i}px`) };
+const px0_3000 = { ...Array.from(Array(3001)).map((_, i) => `${i}px`) };
+
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}', './index.html'],
   theme: {
@@ -10,6 +15,9 @@ module.exports = {
       // => @media (min-width: 1024px) { ... }
     },
     extend: {
+      fontSize: px0_100,
+      width: px0_3000,
+      height: px0_3000,
       fontWeight: {
         regular: 400, // 기본
         medium: 500,
