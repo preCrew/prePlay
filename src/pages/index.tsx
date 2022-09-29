@@ -4,6 +4,7 @@ import MainPage from './MainPage';
 import LoginPage from './LoginPage';
 import ViewPage from './ViewPage';
 import { useCookies } from 'react-cookie';
+import ProfilePage from './ProfilePage';
 
 const App = () => {
   const [cookies] = useCookies(['uid']);
@@ -12,7 +13,7 @@ const App = () => {
     <Routes>
       <Route
         path="/view/:id"
-        element={<View />}
+        element={<ViewPage />}
       />
       <Route
         path="/"
