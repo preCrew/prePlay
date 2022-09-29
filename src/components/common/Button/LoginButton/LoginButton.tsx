@@ -14,7 +14,7 @@ const LoginButton = ({ onClick }: LoginButtonProps) => {
     >
       <img
         className="w-[18px] mr-[18px]"
-        src="https://developers.google.com/static/identity/images/g-logo.png"
+        src="./src/assets/images/google.png"
       />
       <span>Sign in with Google</span>
     </button>

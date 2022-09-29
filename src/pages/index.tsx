@@ -2,10 +2,12 @@ import { Routes, Route } from 'react-router-dom';
 import Header from '@src/components/layout/Header';
 import MainPage from './MainPage';
 import LoginPage from './LoginPage';
-import View from './post';
-import ProfilePage from './ProfilePage';
+import ViewPage from './ViewPage';
+import { useCookies } from 'react-cookie';
 
 const App = () => {
+  const [cookies] = useCookies(['uid']);
+
   return (
     <Routes>
       <Route
