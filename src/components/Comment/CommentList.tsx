@@ -8,7 +8,7 @@ const CommentList = () => {
           <span>cdfkjdlfkgjdf@gmail.com</span>
           <sub className="ml-3 text-gray2">2022.09.10</sub>
         </div>
-        <p className="text-sm">
+        <p className="text-sm whitespace-nowrap overflow-x-hidden text-ellipsis">
           정말노래좋아여정말노래좋아여정말노래좋아여정말노래좋아여정말노래좋아여정말노래좋아여정말노래좋아여정말노래좋아여정말노래좋아여정말노래좋아여정말노래좋아여
         </p>
       </li>
