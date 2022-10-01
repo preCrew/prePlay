@@ -22,6 +22,7 @@
     "@babel/preset-typescript": "^7.18.6",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@reduxjs/toolkit": "^1.8.5",
+    "@tailwindcss/line-clamp": "^0.4.2",
     "@tanstack/react-query": "^4.3.4",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
