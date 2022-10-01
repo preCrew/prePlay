@@ -5,6 +5,7 @@ import LoginPage from './LoginPage';
 import ViewPage from './ViewPage';
 import { useCookies } from 'react-cookie';
 import ProfilePage from './ProfilePage';
+import CollectMusicPage from './CollectMusicPage';
 
 const App = () => {
   const [cookies] = useCookies(['uid']);
@@ -30,6 +31,10 @@ const App = () => {
       <Route
         path="/profile/:id"
         element={<ProfilePage />}
+      />
+      <Route
+        path="admincollectmusic"
+        element={<CollectMusicPage />}
       />
     </Routes>
   );

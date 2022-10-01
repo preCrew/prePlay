@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
-        "strict": true,
-        "lib":[
-            "ES5",
-            "ES2015",
-            "DOM"//web 사용
-        ],
+      "target": "es2015",
+      "strict": true,
+      "lib":[
+          "ES5",
+          "ES2015",
+          "DOM"//web 사용
+      ],
       "forceConsistentCasingInFileNames":false,
       "moduleResolution": "node",
       "jsx":"react-jsx",   
