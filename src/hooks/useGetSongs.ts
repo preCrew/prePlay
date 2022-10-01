@@ -50,5 +50,5 @@ const getSongs = async (isFirstQuery: boolean, query: string) => {
 
 export default (isAnotherQuery: boolean, query: string) =>
   useMutation(() => getSongs(isAnotherQuery, query), {
-    cacheTime: Infinity,
+    // cacheTime: Infinity,
   });

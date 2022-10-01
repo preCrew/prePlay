@@ -2,11 +2,12 @@ import { Routes, Route } from 'react-router-dom';
 import Header from '@src/components/layout/Header';
 import MainPage from './MainPage';
 import LoginPage from './LoginPage';
-import ViewPage from './ViewPage';
 import { useCookies } from 'react-cookie';
 import ProfilePage from './ProfilePage';
 import CollectMusicPage from './CollectMusicPage';
 import Post from './post';
+import { Suspense } from 'react';
+import SkeletonMainPage from '@src/components/MainPage/SkeletonMainPage';
 
 const App = () => {
   const [cookies] = useCookies(['uid']);
@@ -22,7 +23,10 @@ const App = () => {
           path="/"
           element={
             <>
-              <Header /> <MainPage />
+              <Header />
+              <Suspense fallback={<SkeletonMainPage />}>
+                <MainPage />
+              </Suspense>
             </>
           }
         />
