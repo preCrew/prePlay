@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --env development",
+    "dev": "NODE_ENV=development webpack serve --env development",
     "watch": "npx tailwindcss -i ./src/styles/global.css -o ./dist/style.css --watch"
   },
   "repository": {
@@ -31,6 +31,7 @@
     "@types/webpack": "^5.28.0",
     "axios": "^0.27.2",
     "classnames": "^2.3.2",
+    "dotenv": "^16.0.3",
     "firebase": "^9.10.0",
     "fork-ts-checker-webpack-plugin": "^7.2.13",
     "react": "^18.2.0",
