@@ -6,37 +6,40 @@ import ViewPage from './ViewPage';
 import { useCookies } from 'react-cookie';
 import ProfilePage from './ProfilePage';
 import CollectMusicPage from './CollectMusicPage';
+import Post from './post';
 
 const App = () => {
   const [cookies] = useCookies(['uid']);
 
   return (
-    <Routes>
-      <Route
-        path="/view/:id"
-        element={<ViewPage />}
-      />
-      <Route
-        path="/"
-        element={
-          <>
-            <Header /> <MainPage />
-          </>
-        }
-      />
-      <Route
-        path="/login"
-        element={<LoginPage />}
-      />
-      <Route
-        path="/profile/:id"
-        element={<ProfilePage />}
-      />
-      <Route
-        path="admincollectmusic"
-        element={<CollectMusicPage />}
-      />
-    </Routes>
+    <>
+      <Routes>
+        <Route
+          path="/view/:id"
+          element={<Post />}
+        />
+        <Route
+          path="/"
+          element={
+            <>
+              <Header /> <MainPage />
+            </>
+          }
+        />
+        <Route
+          path="/login"
+          element={<LoginPage />}
+        />
+        <Route
+          path="/profile/:id"
+          element={<ProfilePage />}
+        />
+        <Route
+          path="admincollectmusic"
+          element={<CollectMusicPage />}
+        />
+      </Routes>
+    </>
   );
 };
 
