@@ -52,8 +52,11 @@ const Post = () => {
         </section>
         <section>
           <article>
-            <CommentForm />
-            <CommentList />
+            <CommentForm postId={id} />
+            <CommentList
+              postId={id!}
+              me={me}
+            />
           </article>
         </section>
       </div>
