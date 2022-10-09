@@ -8,6 +8,7 @@ import CollectMusicPage from './CollectMusicPage';
 import Post from './post';
 import { Suspense } from 'react';
 import SkeletonMainPage from '@src/components/MainPage/SkeletonMainPage';
+import SearchPage from '@src/pages/SearchPage';
 
 const App = () => {
   const [cookies] = useCookies(['uid']);
@@ -41,6 +42,10 @@ const App = () => {
         <Route
           path="admincollectmusic"
           element={<CollectMusicPage />}
+        />
+        <Route
+          path="/search"
+          element={<SearchPage />}
         />
       </Routes>
     </>
