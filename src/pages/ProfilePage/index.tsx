@@ -40,3 +40,41 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
+
+// // songs 컬렉션
+// songs: [
+//   // 그 안의 문서
+//   {
+//     song_id: '',
+//     title: '',
+//     thumnail_url: '',
+//     music_url: '',
+//     // songs.comments 컬렉션
+//     comments: [
+//       {
+//         comment_id: '',
+//         uid: '',
+//         writter: '',
+//         comment: '',
+//         date: '2020-09-29',
+//       },
+//     ],
+//   },
+// ];
+// // users 컬렉션
+// users: [
+//   {
+//     uid: '',
+//     commentCnt: '',
+//     likeCnt: '',
+//     comments: [
+//       {
+//         comment_id: '',
+//         uid: '',
+//         writter: '',
+//         comment: '',
+//         date: '2020-09-29',
+//       },
+//     ],
+//   },
+// ];

@@ -34,8 +34,24 @@ module.exports = {
       gridTemplateColumns: {
         'auto-fit': 'repeat(auto-fit, 318px)',
       },
+      keyframes: {
+        'skeleton-gradient': {
+          '0%': {
+            'background-color': 'rgba(165, 165, 165, 0.7)',
+          },
+          '50%': {
+            'background-color': 'rgba(165, 165, 165, 0.99)',
+          },
+          '100%': {
+            'background-color': 'rgba(165, 165, 165, 0.7)',
+          },
+        },
+      },
+      animation: {
+        'skeleton-gradient': 'skeleton-gradient 1.35s infinite ease-in-out',
+      },
     },
   },
 
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 };

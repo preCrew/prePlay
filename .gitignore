@@ -6,3 +6,5 @@ uploads/
 .env.local
 *.csv
 react-emotion.pem
+.firebase/
+dist/
