@@ -1,4 +1,4 @@
-import UserButton from '@src/components/common/Button/UserButton';
+import UserButton from '@src/components/Common/Button/UserButton';
 import heart from '@src/assets/heartFlat.png';
 import { useParams } from 'react-router-dom';
 import CommentList from '@src/components/Comment/CommentList';

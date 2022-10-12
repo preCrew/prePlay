@@ -1,4 +1,4 @@
-import LoginButton from '@src/components/common/Button/LoginButton';
+import LoginButton from '@src/components/Common/Button/LoginButton';
 import useLoginWithGoogleQuery from '@src/hooks/useLoginWithGoogleQuery';
 import { User } from 'firebase/auth';
 import { useEffect } from 'react';
@@ -30,7 +30,7 @@ const LoginPage = ({}: LoginPageProps) => {
 
   return (
     <>
-      <div className="w-full h-full flex flex-col justify-center items-center">
+      <div className="flex flex-col items-center justify-center w-full h-full">
         <span className="text-[28px] pb-[20px]">LOGIN</span>
         <LoginButton onClick={handleClickLoginButton} />
       </div>
