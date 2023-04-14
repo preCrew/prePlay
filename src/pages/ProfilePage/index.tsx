@@ -1,7 +1,7 @@
-import UserButton from '@src/components/common/Button/UserButton';
 import heart from '@src/assets/heartFlat.png';
 import { useParams } from 'react-router-dom';
 import CommentList from '@src/components/Comment/CommentList';
+import UserButton from '@src/components/Common/Button/UserButton';
 
 const ProfilePage = () => {
   const email = 'csa2***@naver.com';
@@ -11,12 +11,12 @@ const ProfilePage = () => {
 
   return (
     <>
-      <div className="flex w-full h-full flex-col justify-center items-center">
+      <div className="flex flex-col items-center justify-center w-full h-full">
         <UserButton className="w-[60px] m-[20px]" />
         <div className="text-18">{email}</div>
         {/* like, comment count*/}
         <div className="mt-6 mb-6 text-center">
-          <div className="text-18 flex justify-center items-center">
+          <div className="flex items-center justify-center text-18">
             like
             <img
               src={heart}
@@ -27,7 +27,7 @@ const ProfilePage = () => {
           <div className="text-18">comment + {comment}</div>
         </div>
         {/* comment list */}
-        <div className="w-327 h-324 flex flex-col border rounded-md border-black overflow-y-auto">
+        <div className="flex flex-col overflow-y-auto border border-black rounded-md w-327 h-324">
           <CommentList />
           <CommentList />
           <CommentList />
