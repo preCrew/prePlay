@@ -1,18 +1,39 @@
-import { useParams } from 'react-router-dom';
+import { Suspense, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+
 import { useAppSelector } from '@src/store/store';
 import CommentList from '@src/components/Comment';
 import CommentForm from '@src/components/Comment/CommentForm';
 import Heart from '@src/components/Common/Button/Heart';
+import { TSongLists } from '@src/hooks/useGetSongListsQuery';
+import useLoginWithGoogleQuery from '@src/hooks/useLoginWithGoogleQuery';
 
 const Post = () => {
+  const location = useLocation();
+  const navigator = useNavigate();
+  const data = location.state as TSongLists;
+  const [cookies, setCookie] = useCookies(['uid']);
+  const { refetch } = useLoginWithGoogleQuery();
+
   const { id } = useParams();
   const { posts } = useAppSelector(state => state.post);
-  const me = useAppSelector(state => state.user);
+  const me = cookies.uid;
+
+  useEffect(() => {
+    // 로그인한적 없으면 로그인
+    console.log(cookies.uid);
+    if (!cookies.uid) {
+      alert('로그인후 이용해주세요.');
+      navigator('/login');
+    }
+  }, []);
 
   return (
     <div>
       <div className="flex justify-between py-8 m-auto px-7 md:w-4/5 ">
-        <h2>playlist1/talk that talk-트와이스</h2>
+        <h2>{data.title}</h2>
         <Heart
           postId={id!}
           posts={posts}
@@ -25,16 +46,12 @@ const Post = () => {
             <div className="">
               <img
                 className="object-cover w-full h-[unset]"
-                src="https://image.ytn.co.kr/general/jpg/2022/0805/202208050913233246_d.jpg"
+                src={data.thumnail}
               />
             </div>
             <div className="relative pb-6 mx-4 mt-6 text-white ">
-              <h3 className="w-11/12 mb-5 text-xl">
-                talk that talktalk that talktalk that talktalk that talktalk
-                that talktalk that talktalk that talktalk that talktalk that
-                talktalk that talk
-              </h3>
-              <p className="mb-8 text-sm">트와이스</p>
+              <h3 className="w-11/12 mb-5 text-xl">{data.title}</h3>
+              {/* <p className="mb-8 text-sm">트와이스</p> */}
               {/* <ul>
                 <li>
                   <a href="">#해시태그</a>
@@ -52,11 +69,16 @@ const Post = () => {
         </section>
         <section>
           <article>
-            <CommentForm postId={id} />
-            <CommentList
-              postId={id!}
-              me={me}
-            />
+            <Suspense fallback={'댓글창 로딩중...'}>
+              <CommentForm
+                postId={id}
+                me={me}
+              />
+              <CommentList
+                postId={id!}
+                me={me}
+              />
+            </Suspense>
           </article>
         </section>
       </div>

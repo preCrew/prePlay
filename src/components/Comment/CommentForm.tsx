@@ -1,31 +1,30 @@
+import useAddComment from '@src/hooks/useAddComment';
 import usePost from '@src/store/hooks/usePost';
+import { addCommentAction } from '@src/store/reducers/post-Slice';
+import { TUser } from '@src/store/reducers/user-Slice';
 import { useAppSelector } from '@src/store/store';
 import React, { useCallback, useState } from 'react';
 
 interface CommentProps {
-  postId?: number | string;
+  postId?: string;
+  me: string;
 }
 
-const CommentForm = ({ postId }: CommentProps) => {
-  const userId = useAppSelector(state => state.user.id);
-
-  const { addComment } = usePost();
+const CommentForm = ({ postId, me }: CommentProps) => {
   const [inputValue, setInputValue] = useState('');
+  const { addComment } = useAddComment({ postId, me, text: inputValue });
+  const onSubmit = useCallback(
+    (e: React.FormEvent) => {
+      e.preventDefault();
+      // 댓글 생성
+      addComment.mutate();
+    },
+    [inputValue],
+  );
 
   const onChange = useCallback((e: { target: HTMLInputElement }) => {
     setInputValue(e.target.value);
   }, []);
-
-  //임시 댓글 id
-  let id = 0;
-  const onSubmit = useCallback(
-    (e: React.FormEvent) => {
-      e.preventDefault();
-      addComment(id, postId!, userId, inputValue);
-      id++;
-    },
-    [inputValue],
-  );
 
   return (
     <div className="px-4 pt-4 pb-8 mb-10 border rounded-basic border-primary1">

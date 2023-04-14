@@ -14,13 +14,16 @@ const getSongLists = async (startIdx: number, lists: number[]) => {
   if (lists.length > 0) {
     for (let idx = startIdx; idx < startIdx + 12; idx++) {
       const docSnap = await getDoc(doc(db, 'songs', lists[idx].toString()));
+
       if (!docSnap.exists()) {
         throw `받아올 문서가 존재하지 않음: ${lists[idx]}`;
       } else {
+        //docId.push(docSnap.id);
         result.push(docSnap.data() as DocumentData as TSongLists);
       }
     }
   }
+
   return {
     pageLists: result,
     currentPage: startIdx + 12,

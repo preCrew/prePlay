@@ -7,11 +7,12 @@ interface MainBoxProps {
 }
 
 const MainBox = ({ item }: MainBoxProps) => {
+
   return (
     <>
       <Link
         to={`/view/${item.id}`}
-        state={{ id: item.id }}
+        state={{ ...item }}
         className="w-full h-full"
         key={item.id}
       >

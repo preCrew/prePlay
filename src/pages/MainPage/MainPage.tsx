@@ -7,7 +7,7 @@ import useInfinityScroll from '@src/hooks/useInfitityScroll';
 import SkeletonMainPage from '@src/components/MainPage/SkeletonMainPage';
 import MainBox from '@src/components/MainPage/MainBox';
 import { useRef } from 'react';
-import { getPostAction, TypefinalPosts } from '@src/store/reducers/post-Slice';
+
 import { useAppDispatch } from '@src/store/store';
 
 interface MainPageProps {}
@@ -38,20 +38,12 @@ const MainPage = ({}: MainPageProps) => {
     fetchNextPage();
   });
 
-  useEffect(() => {
-    if (musicLists) {
-      dispatch(getPostAction({ getPosts: musicLists.pages[0].pageLists }));
-    }
-
-    //console'TypefinalPosts.log();
-  }, [dispatch, musicLists]);
-
   return (
     <>
       <div className="grid justify-center w-[100%] pt-[19px]  bg-gray-600 gap-x-[27px] gap-y-[30px] grid-cols-auto-fit justify-items-center min-w-fit">
         {musicLists &&
           musicLists.pages.map(page =>
-            page.pageLists.map(item => <MainBox item={item} />),
+            page.pageLists.map((item, idx: any) => <MainBox item={item} />),
           )}
       </div>
       {isFetchingNextPage && <SkeletonMainPage />}
