@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useAppSelector } from '@src/store/store';
 import CommentList from '@src/components/Comment';
 import CommentForm from '@src/components/Comment/CommentForm';
-import Heart from '@src/components/common/Button/Heart';
+import Heart from '@src/components/Common/Button/Heart/Heart';
 
 const Post = () => {
   const { id } = useParams();

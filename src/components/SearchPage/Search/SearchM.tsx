@@ -17,7 +17,6 @@ const Search = (search_KW: SearchProps) => {
     axios
       .get(uri)
       .then(res => {
-        console.log(res);
         const responseData: TSongLists[] = res.data.items.map((item: any) => {
           return {
             id: item.id,
@@ -28,7 +27,7 @@ const Search = (search_KW: SearchProps) => {
         setPlaylist(responseData);
       })
       .catch(() => {});
-  }, []);
+  }, [search_KW]);
 
   return (
     <>

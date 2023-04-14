@@ -14,6 +14,9 @@ const Header = () => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
+  const onKeyPress = () => {
+    SearchonClick();
+  }
   const SearchonClick = () => {
     navigate(`/search`, { state: { search_KW: search_KW } });
   };
@@ -97,6 +100,7 @@ const Header = () => {
               type="text"
               placeholder="SEARCH FOR MUSIC TAG"
               onChange={onChange}
+              onKeyPress={onKeyPress}
             />
           </div>
         </div>
