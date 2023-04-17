@@ -1,9 +1,5 @@
-import useAddComment from '@src/hooks/useAddComment';
-import usePost from '@src/store/hooks/usePost';
-import { addCommentAction } from '@src/store/reducers/post-Slice';
-import { TUser } from '@src/store/reducers/user-Slice';
-import { useAppSelector } from '@src/store/store';
 import React, { useCallback, useState } from 'react';
+import useAddComment from '@src/hooks/useAddComment';
 
 interface CommentProps {
   postId?: string;

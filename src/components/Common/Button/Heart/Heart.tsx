@@ -1,60 +1,53 @@
-import usePost from '@src/store/hooks/usePost';
-import { TPost, TPosts, TypefinalPosts } from '@src/store/reducers/post-Slice';
-import { TUser } from '@src/store/reducers/user-Slice';
-
+import { useCallback, useEffect } from 'react';
 import { RiHeart3Fill, RiHeart3Line } from 'react-icons/ri';
+import { useNavigate } from 'react-router-dom';
+
+import useAddLike from '@src/hooks/useAddLike';
+import useDeleteLike from '@src/hooks/useDeleteLike';
+import useGetLike from '@src/hooks/useGetLike';
+import useIsLogin from '@src/hooks/user/useIsLogin';
 
 const heartIconStyle = {
   color: '#ff0000',
   fontSize: '30px',
 };
-
 interface HeartProps {
   onClickHeart?: boolean;
   styleProperty?: string;
-  postId: string | number;
-  posts: TypefinalPosts[];
-  me: TUser;
+  postId: string;
 }
 
-const Heart = ({
-  onClickHeart,
-  styleProperty,
-  postId,
-  posts,
-  me,
-}: HeartProps) => {
-  const { addLike, deleteLike } = usePost();
+const Heart = ({ onClickHeart, styleProperty, postId }: HeartProps) => {
+  const me = useIsLogin();
+  const { data: meLike, refetch: refetchGetLike } = useGetLike(postId, me);
+  const { mutate: mustateAddLike } = useAddLike({ postId, me });
+  const { mutate: mustateDeletLike } = useDeleteLike();
+
   const heartOnIcon = <RiHeart3Fill {...heartIconStyle} />;
   const heartOffIcon = <RiHeart3Line {...heartIconStyle} />;
-  //포스트 아이디를 찾아서 그 포스트 좋아요에 내 아이디를 추가!\
-  const currentPost = posts?.find(post => post.id === postId);
-  const myLike = currentPost?.Likers?.find(like => like.userId === me?.id);
-  const onClick = () => {
-    if (myLike) {
-      deleteLike(currentPost?.id!, me?.id!);
+
+  useEffect(() => {
+    if (me) refetchGetLike();
+  });
+
+  const onClick = useCallback(() => {
+    if (meLike?.length) {
+      mustateDeletLike(meLike?.[0].id as string);
       return;
     }
-    addLike(currentPost?.id!, me?.id!);
-  };
+    mustateAddLike();
+  }, [meLike]);
 
   return (
     <>
       <div className="flex items-center">
-        {onClickHeart ? (
-          <button
-            type="button"
-            className={styleProperty}
-            onClick={onClick}
-          >
-            {myLike ? heartOnIcon : heartOffIcon}
-          </button>
-        ) : (
-          <>
-            {heartOnIcon}
-            <span className="ml-2">{currentPost?.Likers?.length}</span>
-          </>
-        )}
+        <button
+          type="button"
+          className={styleProperty}
+          onClick={onClick}
+        >
+          {meLike?.length ? heartOnIcon : heartOffIcon}
+        </button>
       </div>
     </>
   );

@@ -34,11 +34,7 @@ const Post = () => {
     <div>
       <div className="flex justify-between py-8 m-auto px-7 md:w-4/5 ">
         <h2>{data.title}</h2>
-        <Heart
-          postId={id!}
-          posts={posts}
-          me={me}
-        />
+        <Heart postId={id!} />
       </div>
       <div className="max-w-[644px] m-auto px-7">
         <section className="mb-7">
@@ -61,8 +57,6 @@ const Post = () => {
                 onClickHeart={true}
                 styleProperty="absolute right-3 top-0"
                 postId={id!}
-                posts={posts}
-                me={me}
               />
             </div>
           </article>

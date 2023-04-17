@@ -1,12 +1,20 @@
-import { TSongLists } from '@src/hooks/useGetSongListsQuery';
 import { Link } from 'react-router-dom';
-import heartF from '@src/assets/heartFlat.png';
+
+import { TSongLists } from '@src/hooks/useGetSongListsQuery';
+import Heart from '@src/components/Common/Button/Heart/Heart';
+import useGetLikeNum from '@src/hooks/post/useGetLikeNum';
+import { useEffect } from 'react';
 
 interface MainBoxProps {
   item: TSongLists;
 }
 
 const MainBox = ({ item }: MainBoxProps) => {
+  const { data: likeNum, refetch } = useGetLikeNum(item.id);
+
+  useEffect(() => {
+    refetch();
+  }, [likeNum]);
 
   return (
     <>
@@ -34,11 +42,8 @@ const MainBox = ({ item }: MainBoxProps) => {
               {/* 좋아요 */}
               <div className=" text-white mt-[10px]  font-[Inter] font-light">
                 <div className="flex w-20 h-20">
-                  <img
-                    src={heartF}
-                    alt="heart"
-                  ></img>
-                  <div className="ml-[6px]">+{1}</div>
+                  <Heart postId={item.id} />
+                  <div className="ml-[6px]">+{likeNum}</div>
                 </div>
               </div>
             </div>

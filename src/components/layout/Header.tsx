@@ -16,7 +16,7 @@ const Header = () => {
   };
   const onKeyPress = () => {
     SearchonClick();
-  }
+  };
   const SearchonClick = () => {
     navigate(`/search`, { state: { search_KW: search_KW } });
   };

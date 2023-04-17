@@ -1,24 +1,28 @@
 import { Routes, Route } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+import { Suspense } from 'react';
+
 import Header from '@src/components/layout/Header';
 import MainPage from './MainPage';
 import LoginPage from './LoginPage';
-import { useCookies } from 'react-cookie';
 import ProfilePage from './ProfilePage';
 import CollectMusicPage from './CollectMusicPage';
 import Post from './post';
-import { Suspense } from 'react';
 import SkeletonMainPage from '@src/components/MainPage/SkeletonMainPage';
 import SearchPage from '@src/pages/SearchPage';
+import SkeletonPost from '@src/components/Post/SkeletonPost';
 
 const App = () => {
-  const [cookies] = useCookies(['uid']);
-
   return (
     <>
       <Routes>
         <Route
           path="/view/:id"
-          element={<Post />}
+          element={
+            <Suspense fallback={<SkeletonPost />}>
+              <Post />
+            </Suspense>
+          }
         />
         <Route
           path="/"
