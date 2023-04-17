@@ -1,5 +1,6 @@
-import heart from '@src/assets/heartFlat.png';
 import { useParams } from 'react-router-dom';
+
+import heart from '@src/assets/heartFlat.png';
 import CommentList from '@src/components/Comment/CommentList';
 import UserButton from '@src/components/Common/Button/UserButton';
 
@@ -28,11 +29,7 @@ const ProfilePage = () => {
         </div>
         {/* comment list */}
         <div className="flex flex-col overflow-y-auto border border-black rounded-md w-327 h-324">
-          <CommentList />
-          <CommentList />
-          <CommentList />
-          <CommentList />
-          <CommentList />
+          {/* <CommentList /> */}
         </div>
       </div>
     </>

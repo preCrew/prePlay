@@ -1,9 +1,9 @@
-import LoginButton from '@src/components/Common/Button/LoginButton/LoginButton';
-import useLoginWithGoogleQuery from '@src/hooks/useLoginWithGoogleQuery';
-import { User } from 'firebase/auth';
 import { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
+
+import LoginButton from '@src/components/Common/Button/LoginButton/LoginButton';
+import useLoginWithGoogleQuery from '@src/hooks/useLoginWithGoogleQuery';
 
 interface LoginPageProps {}
 

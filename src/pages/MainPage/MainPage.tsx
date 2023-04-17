@@ -1,14 +1,19 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import useGetSongCountQuery from '@src/hooks/useGetSongCountQuery';
-import useGetSongListsQuery from '@src/hooks/useGetSongListsQuery';
+import useGetSongListsQuery, {
+  TSongLists,
+} from '@src/hooks/useGetSongListsQuery';
 import useInfinityScroll from '@src/hooks/useInfitityScroll';
 import SkeletonMainPage from '@src/components/MainPage/SkeletonMainPage';
 import MainBox from '@src/components/MainPage/MainBox';
 import { useRef } from 'react';
 
+import { useAppDispatch } from '@src/store/store';
+
 interface MainPageProps {}
 
 const MainPage = ({}: MainPageProps) => {
+  const dispatch = useAppDispatch();
   const { data: musicCnt } = useGetSongCountQuery();
   const next = useRef(0);
   const musicsOrder = useMemo(() => {
@@ -35,10 +40,10 @@ const MainPage = ({}: MainPageProps) => {
 
   return (
     <>
-      <div className="grid justify-center w-[100%] pt-[19px]  bg-gray-600 gap-x-[27px] gap-y-[30px] grid-cols-auto-fit justify-items-center pr-[48px] pl-[39px] min-w-fit">
+      <div className="grid justify-center w-[100%] pt-[19px]  bg-gray-600 gap-x-[27px] gap-y-[30px] grid-cols-auto-fit justify-items-center min-w-fit">
         {musicLists &&
           musicLists.pages.map(page =>
-            page.pageLists.map(item => <MainBox item={item} />),
+            page.pageLists.map((item, idx: any) => <MainBox item={item} />),
           )}
       </div>
       {isFetchingNextPage && <SkeletonMainPage />}
