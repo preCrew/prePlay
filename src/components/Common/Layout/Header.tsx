@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import user from '@src/assets/user.png';
-import search from '@src/assets/search.png';
-import classNames from 'classnames';
 import { Link, useNavigate } from 'react-router-dom';
+
+import { AiOutlineUser, AiOutlineSearch } from 'react-icons/ai';
+
 import Search from '../../../pages/SearchPage';
 import { SearchProps } from '@src/components/SearchPage/Search/SearchM';
 
@@ -77,22 +77,14 @@ const Header = () => {
           {/* PC Menu items */}
           <div className="w-full absolute top-[33px] left-[3%]">
             <Link to="/login">
-              <button className=" border-0 py-3 invisible lg:visible leading-none text-xl bg-transparent mr-2  w-[15px]">
-                <img
-                  src={user}
-                  alt="user"
-                ></img>
-              </button>
+              <AiOutlineUser fontSize="20px" />
             </Link>
 
             <button
               onClick={SearchonClick}
-              className="ml-[34px] border-0 py-3 invisible lg:visible leading-none text-xl bg-transparent mr-2  w-[15px]"
+              className=""
             >
-              <img
-                src={search}
-                alt="search"
-              ></img>
+              <AiOutlineSearch />
             </button>
 
             <input
@@ -105,24 +97,6 @@ const Header = () => {
           </div>
         </div>
       </nav>
-
-      {/* mobile menu items */}
-      <div className={classNames({ hidden: !menuToggle })}>
-        <>
-          <Link
-            to="/Login"
-            className="block px-4 py-2 hover:bg-gray-200"
-          >
-            User
-          </Link>
-          <Link
-            to="#"
-            className="block px-4 py-2 text-sm hover:bg-gray-200"
-          >
-            Search
-          </Link>
-        </>
-      </div>
     </header>
   );
 };
