@@ -1,13 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { TLoadingState } from './common.interface';
-import shortid from 'shortid';
 
 export interface TUser {
-  id: string;
+  nickname: string;
+  uid: string;
+  email: string;
 }
 
-const dummyUserData = () => ({
-  id: shortid.generate(),
+const userData = () => ({
   isLogin: false,
   uid: '',
   loadingState: {
@@ -18,16 +17,26 @@ const dummyUserData = () => ({
     updateUserInfo: {},
   },
   email: '',
+  nickname: '',
 });
 //dummyUserData(20);
 
-const initialUserState: TUser = dummyUserData();
+const initialUserState: TUser = userData();
 
 const userSlice = createSlice({
   name: 'userSlice',
   initialState: initialUserState,
-  reducers: {},
+  reducers: {
+    getUserInfoAction(state, action) {
+      state.nickname = action.payload.nickname;
+      state.email = action.payload.email;
+      state.uid = action.payload.uid;
+    },
+    updateNicknameAction(state, action) {
+      state.nickname = action.payload;
+    },
+  },
 });
 
-export const {} = userSlice.actions;
+export const { getUserInfoAction, updateNicknameAction } = userSlice.actions;
 export default userSlice.reducer;
