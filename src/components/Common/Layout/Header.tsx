@@ -3,7 +3,7 @@ import user from '@src/assets/user.png';
 import search from '@src/assets/search.png';
 import classNames from 'classnames';
 import { Link, useNavigate } from 'react-router-dom';
-import Search from '../../pages/SearchPage';
+import Search from '../../../pages/SearchPage';
 import { SearchProps } from '@src/components/SearchPage/Search/SearchM';
 
 const Header = () => {
@@ -111,7 +111,7 @@ const Header = () => {
         <>
           <Link
             to="/Login"
-            className="block px-4 py-2 text-sm hover:bg-gray-200"
+            className="block px-4 py-2 hover:bg-gray-200"
           >
             User
           </Link>

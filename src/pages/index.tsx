@@ -2,15 +2,16 @@ import { Routes, Route } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import { Suspense } from 'react';
 
-import Header from '@src/components/layout/Header';
+import Header from '@src/components/Common/Layout/Header';
 import MainPage from './MainPage';
 import LoginPage from './LoginPage';
-import ProfilePage from './ProfilePage';
 import CollectMusicPage from './CollectMusicPage';
 import Post from './post';
 import SkeletonMainPage from '@src/components/MainPage/SkeletonMainPage';
 import SearchPage from '@src/pages/SearchPage';
 import SkeletonPost from '@src/components/Post/SkeletonPost';
+import Mypage from './Mypage';
+import Profile from './Mypage/Profile';
 
 const App = () => {
   return (
@@ -40,8 +41,12 @@ const App = () => {
           element={<LoginPage />}
         />
         <Route
-          path="/profile/:id"
-          element={<ProfilePage />}
+          path="/mypage/:id/*"
+          element={<Mypage />}
+        />
+        <Route
+          path="/mypage/:id/edit"
+          element={<Profile />}
         />
         <Route
           path="admincollectmusic"
