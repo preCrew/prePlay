@@ -1,26 +1,37 @@
-import { TSongLists } from '@src/hooks/useGetSongListsQuery';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import MainBox from '@src/components/MainPage/MainBox';
-import search from '@src/assets/search.png';
-import Header from '@src/components/Common/Layout/Header';
-import SearchM from '@src/components/SearchPage/Search/SearchM';
-import { useLocation, useNavigate } from 'react-router-dom';
-
-export interface SearchProps {
-  item?: TSongLists;
-  search_KW?: string;
-}
+import Layout from '@src/components/Common/Layout/Layout';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
-  const { state } = useLocation();
-  const search_KW: SearchProps = state as SearchProps;
+  const navigate = useNavigate();
+  const [search_KW, setSearch] = useState<string>();
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+  const handelonKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      SearchonClick();
+    }
+  };
+
+  const SearchonClick = () => {
+    navigate(`/searchresult?=${search_KW}`, {
+      state: { search_KW: search_KW },
+    });
+  };
 
   return (
-    <>
-      <Header />
-      <SearchM {...search_KW} />
-    </>
+    <Layout>
+      <input
+        className="ml-[8px] text-[15px] font-[Inter] "
+        type="text"
+        placeholder="SEARCH FOR MUSIC TAG"
+        onChange={onChange}
+        onKeyPress={handelonKeyPress}
+      />
+      <button onClick={SearchonClick}>dddddd</button>
+    </Layout>
   );
 };
 
