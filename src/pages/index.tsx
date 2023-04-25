@@ -12,6 +12,7 @@ import SearchPage from '@src/pages/SearchPage';
 import SkeletonPost from '@src/components/Post/SkeletonPost';
 import Mypage from './Mypage';
 import Profile from './Mypage/Profile';
+import SearchResultPage from './SearchPage/SearchResult';
 
 const App = () => {
   return (
@@ -29,7 +30,6 @@ const App = () => {
           path="/"
           element={
             <>
-              <Header />
               <Suspense fallback={<SkeletonMainPage />}>
                 <MainPage />
               </Suspense>
@@ -55,6 +55,10 @@ const App = () => {
         <Route
           path="/search"
           element={<SearchPage />}
+        />
+        <Route
+          path="/searchresult"
+          element={<SearchResultPage />}
         />
       </Routes>
     </>

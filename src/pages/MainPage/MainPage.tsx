@@ -9,6 +9,7 @@ import MainBox from '@src/components/MainPage/MainBox';
 import { useRef } from 'react';
 
 import { useAppDispatch } from '@src/store/store';
+import Layout from '@src/components/Common/Layout/Layout';
 
 interface MainPageProps {}
 
@@ -40,13 +41,15 @@ const MainPage = ({}: MainPageProps) => {
 
   return (
     <>
-      <div className="grid justify-center w-[100%] pt-[19px]  bg-gray-600 gap-x-[27px] gap-y-[30px] grid-cols-auto-fit justify-items-center min-w-fit">
-        {musicLists &&
-          musicLists.pages.map(page =>
-            page.pageLists.map((item, idx: any) => <MainBox item={item} />),
-          )}
-      </div>
-      {isFetchingNextPage && <SkeletonMainPage />}
+      <Layout>
+        <div className="grid justify-center w-[100%] pt-[19px]  bg-gray-600 gap-x-[27px] gap-y-[30px] grid-cols-auto-fit justify-items-center min-w-fit">
+          {musicLists &&
+            musicLists.pages.map(page =>
+              page.pageLists.map((item, idx: any) => <MainBox item={item} />),
+            )}
+        </div>
+        {isFetchingNextPage && <SkeletonMainPage />}
+      </Layout>
     </>
   );
 };

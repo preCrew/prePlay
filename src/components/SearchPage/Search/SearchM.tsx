@@ -31,7 +31,7 @@ const Search = (search_KW: SearchProps) => {
 
   return (
     <>
-      <div className="grid justify-center w-[100%] pt-[19px]  bg-gray-600 gap-x-[27px] gap-y-[30px] grid-cols-auto-fit justify-items-center pr-[48px] pl-[39px] min-w-fit">
+      <div className="grid justify-center w-[100%] bg-gray-600 gap-x-[27px] gap-y-[30px] grid-cols-auto-fit justify-items-center in-w-fit">
         {playlist?.map((item: TSongLists) => {
           return (
             <>
