@@ -9,7 +9,7 @@ const Layout = ({ children }: ILayoutProps) => {
   return (
     <>
       <Header />
-      {children}
+      <div className="p-basic-top contents-box"> {children}</div>
       <Nav />
     </>
   );

@@ -22,7 +22,7 @@ const Nav = () => {
           index={2}
         />
         <NavItem
-          to={`/mypage/${me}`}
+          to={`/mypage`}
           index={3}
         />
       </ul>
