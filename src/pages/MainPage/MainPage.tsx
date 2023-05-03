@@ -1,15 +1,15 @@
 import { useEffect, useMemo } from 'react';
+import { useRef } from 'react';
+
 import useGetSongCountQuery from '@src/hooks/useGetSongCountQuery';
 import useGetSongListsQuery, {
   TSongLists,
 } from '@src/hooks/useGetSongListsQuery';
 import useInfinityScroll from '@src/hooks/useInfitityScroll';
-import SkeletonMainPage from '@src/components/MainPage/SkeletonMainPage';
 import MainBox from '@src/components/MainPage/MainBox';
-import { useRef } from 'react';
-
 import { useAppDispatch } from '@src/store/store';
 import Layout from '@src/components/Common/Layout/Layout';
+import SkeletonMainList from './Skeleton/SkeletonMainList';
 
 interface MainPageProps {}
 
@@ -42,13 +42,13 @@ const MainPage = ({}: MainPageProps) => {
   return (
     <>
       <Layout>
-        <div className="grid justify-center w-[100%] pt-[19px]  bg-gray-600 gap-x-[27px] gap-y-[30px] grid-cols-auto-fit justify-items-center min-w-fit">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           {musicLists &&
             musicLists.pages.map(page =>
               page.pageLists.map((item, idx: any) => <MainBox item={item} />),
             )}
         </div>
-        {isFetchingNextPage && <SkeletonMainPage />}
+        {isFetchingNextPage && <SkeletonMainList />}
       </Layout>
     </>
   );

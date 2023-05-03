@@ -25,22 +25,22 @@ const MainBox = ({ item }: MainBoxProps) => {
         key={item.id}
       >
         <div>
-          <div className="relative m-1 bg-black w-full  h-[327px] rounded-[10px] ">
+          <div className="relative m-1 w-full  h-[327px] rounded-[10px] border-gray-300 shadow-md">
             {/* 썸네일 공간 */}
-            <div className=" p-1 bg-white w-full h-[212px] rounded-[10px] object-cover">
+            <div className="w-full h-[212px] object-cover">
               <img
                 src={item.thumnail}
                 className="w-full h-full rounded-[10px]"
               />
             </div>
             {/* 아래공간 */}
-            <div className=" absolute bottom-0 w-full px-[10px]  h-[115px]">
+            <div className="text-black font-medium absolute bottom-0 w-full px-[10px] h-[115px]">
               {/* 타이틀 */}
-              <div className=" text-white mt-[10px] font-[Inter]  font-light h-50  text-ellipsis overflow-hidden line-clamp-2">
+              <div className="mt-[10px] font-[Inter]  font-light h-50  text-ellipsis overflow-hidden line-clamp-2">
                 {item.title}
               </div>
               {/* 좋아요 */}
-              <div className=" text-white mt-[10px]  font-[Inter] font-light">
+              <div className="mt-[10px]  font-[Inter] font-light">
                 <div className="flex w-20 h-20">
                   <Heart postId={item.id} />
                   <div className="ml-[6px]">+{likeNum}</div>
