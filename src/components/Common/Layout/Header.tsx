@@ -1,24 +1,8 @@
-import React, { useState } from 'react';
-
-import classNames from 'classnames';
-import { Link, useNavigate } from 'react-router-dom';
-import Search from '../../../pages/SearchPage';
-import { SearchProps } from '@src/components/SearchPage/Search/SearchM';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
-  const [menuToggle, setMenuToggle] = useState(false);
-  const [search_KW, setSearch] = useState<string>();
-  const [toggle, setToggle] = useState(0);
   const navigate = useNavigate();
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-  };
-  const onKeyPress = () => {
-    SearchonClick();
-  };
-  const SearchonClick = () => {
-    navigate(`/search`, { state: { search_KW: search_KW } });
-  };
+
   return (
     <header className="fixed top-0 left-0 z-50 w-full bg-white ">
       <div className="flex items-center m-3 3 space-between ">

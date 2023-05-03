@@ -6,6 +6,7 @@ import search from '@src/assets/search.png';
 import Header from '@src/components/Common/Layout/Header';
 import SearchM from '@src/components/SearchPage/Search/SearchM';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Layout from '@src/components/Common/Layout/Layout';
 
 export interface SearchProps {
   item?: TSongLists;
@@ -18,8 +19,9 @@ const SearchResultPage = () => {
 
   return (
     <>
-      <Header />
-      <SearchM {...search_KW} />
+      <Layout>
+        <SearchM {...search_KW} />
+      </Layout>
     </>
   );
 };
