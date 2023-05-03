@@ -1,16 +1,36 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
-import { useNavigate } from 'react-router-dom';
+import {
+  UNSAFE_NavigationContext,
+  useNavigate,
+  NavigationType,
+} from 'react-router-dom';
 
 import LoginButton from '@src/components/Common/Button/LoginButton/LoginButton';
 import useLoginWithGoogleQuery from '@src/hooks/useLoginWithGoogleQuery';
+import Layout from '@src/components/Common/Layout/Layout';
+import { History, Update } from 'history';
 
 interface LoginPageProps {}
 
 const LoginPage = ({}: LoginPageProps) => {
   const navigator = useNavigate();
+
   const [cookies, setCookie] = useCookies(['uid']);
   const { refetch } = useLoginWithGoogleQuery();
+
+  const onBackButtonEvent = () => {
+    window.history.pushState(null, '/mypage', 'mypage');
+    navigator('/');
+    // navigator('/');
+  };
+
+  useEffect(() => {
+    window.addEventListener('popstate', onBackButtonEvent);
+    return () => {
+      //window.removeEventListener('popstate', onBackButtonEvent);
+    };
+  }, []);
 
   useEffect(() => {
     // 로그인한적 없으면 로그인
@@ -18,6 +38,7 @@ const LoginPage = ({}: LoginPageProps) => {
       navigator(-1);
     }
   }, []);
+
   const handleClickLoginButton = async () => {
     try {
       const user = await refetch();
@@ -29,12 +50,12 @@ const LoginPage = ({}: LoginPageProps) => {
   };
 
   return (
-    <>
-      <div className="flex flex-col items-center justify-center w-full h-full">
-        <span className="text-[28px] pb-[20px]">LOGIN</span>
+    <Layout>
+      <div className="flex flex-col items-center w-full h-screen pt-10">
+        <h1 className="text-[28px] pb-[20px] mb-10 font-bold">로그인</h1>
         <LoginButton onClick={handleClickLoginButton} />
       </div>
-    </>
+    </Layout>
   );
 };
 

@@ -2,17 +2,17 @@ import { Routes, Route } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import { Suspense } from 'react';
 
-import Header from '@src/components/Common/Layout/Header';
 import MainPage from './MainPage';
 import LoginPage from './LoginPage';
 import CollectMusicPage from './CollectMusicPage';
-import Post from './post';
-import SkeletonMainPage from '@src/components/MainPage/SkeletonMainPage';
+import Post from './PostPage/Post';
 import SearchPage from '@src/pages/SearchPage';
 import SkeletonPost from '@src/components/Post/SkeletonPost';
-import Mypage from './Mypage';
 import Profile from './Mypage/Profile';
 import SearchResultPage from './SearchPage/SearchResult';
+import Mypage from './Mypage';
+import SkeletonMainList from './MainPage/Skeleton/SkeletonMainList';
+import FavoritePage from './FevoritePage/FavoritePage';
 
 const App = () => {
   return (
@@ -30,7 +30,7 @@ const App = () => {
           path="/"
           element={
             <>
-              <Suspense fallback={<SkeletonMainPage />}>
+              <Suspense fallback={<SkeletonMainList />}>
                 <MainPage />
               </Suspense>
             </>
@@ -41,11 +41,15 @@ const App = () => {
           element={<LoginPage />}
         />
         <Route
-          path="/mypage/:id/*"
+          path="/favorite"
+          element={<FavoritePage />}
+        />
+        <Route
+          path="/mypage"
           element={<Mypage />}
         />
         <Route
-          path="/mypage/:id/edit"
+          path="/mypage/edit"
           element={<Profile />}
         />
         <Route
