@@ -23,6 +23,9 @@ module.exports = {
         medium: 500,
         bold: 700,
       },
+      padding: {
+        'basic-top': '7vh 20px 0',
+      },
       colors: {
         primary1: '#737bc5',
         gray1: '#d9d9d9',

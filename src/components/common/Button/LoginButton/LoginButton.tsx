@@ -6,17 +6,13 @@ const LoginButton = ({ onClick }: LoginButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className=" rounded border-[0.5px] border-grey shadow-md border-b-[1px]
-                pl-[6px] pr-[6px] pt-[5px] pb-[5px] 
-                flex justify-around items-center 
-                font-[Roboto] text-[#898989]
-                hover:bg-[#4285F4] hover:text-white"
+      className="flex items-center justify-center w-11/12 p-3 border border-gray-200 rounded-3xl"
     >
       <img
         className="w-[18px] mr-[18px]"
         src="./src/assets/images/google.png"
       />
-      <span>Sign in with Google</span>
+      <span>구글로 로그인 하기</span>
     </button>
   );
 };
