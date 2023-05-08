@@ -31,6 +31,7 @@ export default () => {
 
   return useQuery(['profile'], () => useProfile(), {
     staleTime: 500000,
+    enabled: false,
     onSuccess: (data: TuserInfo) => {
       // console.log(data);
       getUserInfo(data);
