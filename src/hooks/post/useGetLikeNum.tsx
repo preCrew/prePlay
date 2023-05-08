@@ -26,7 +26,7 @@ const useGetLikeNum = async ({ postId }: Tdata) => {
   try {
     const likeRef = collection(db, 'like');
 
-    const doc = query(likeRef, where('postId', '==', postId));
+    const doc = query(likeRef, where('data.id', '==', postId));
 
     const querySnapshot = await getDocs(doc);
     //console.log(querySnapshot.size);
@@ -42,9 +42,7 @@ const useGetLikeNum = async ({ postId }: Tdata) => {
 
 export default (postId: string) =>
   useQuery(['likenum', postId], () => useGetLikeNum({ postId }), {
-    onSuccess: data => {
-      console.log(data);
-    },
+    onSuccess: data => {},
     onError: error => {
       console.log(error);
     },
