@@ -1,7 +1,9 @@
-import Layout from '@src/components/Common/Layout/Layout';
-import useIsLogin from '@src/hooks/user/useIsLogin';
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import Layout from '@src/components/Common/Layout/Layout';
+import FavoritList from '@src/components/Favorite/FavoriteList';
+import useIsLogin from '@src/hooks/user/useIsLogin';
 
 const FavoritePage = () => {
   const navigate = useNavigate();
@@ -14,7 +16,7 @@ const FavoritePage = () => {
     }
   }, []);
 
-  return <Layout></Layout>;
+  return <Layout>{me && <FavoritList />}</Layout>;
 };
 
 export default FavoritePage;
