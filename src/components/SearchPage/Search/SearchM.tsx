@@ -1,7 +1,9 @@
-import { TSongLists } from '@src/hooks/useGetSongListsQuery';
+import { Suspense, useEffect, useState } from 'react';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import MainBox from '../../MainPage/MainBox';
+
+import { TSongLists } from '@src/hooks/useGetSongListsQuery';
+
+import VideoItem from '@src/components/VideoList/VideoItem/VideoItem';
 
 export interface SearchProps {
   item?: TSongLists;
@@ -30,17 +32,11 @@ const Search = (search_KW: SearchProps) => {
   }, [search_KW]);
 
   return (
-    <>
-      <div className="grid justify-center w-[100%] gap-x-[27px] gap-y-[30px] grid-cols-auto-fit justify-items-center in-w-fit">
-        {playlist?.map((item: TSongLists) => {
-          return (
-            <>
-              <MainBox item={item} />
-            </>
-          );
-        })}
-      </div>
-    </>
+    <div className="grid justify-center w-[100%] gap-x-[27px] gap-y-[30px] grid-cols-auto-fit justify-items-center in-w-fit">
+      {playlist?.map((item: TSongLists) => (
+        <VideoItem item={item} />
+      ))}
+    </div>
   );
 };
 

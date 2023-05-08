@@ -10,11 +10,11 @@ import MainBox from '@src/components/MainPage/MainBox';
 import { useAppDispatch } from '@src/store/store';
 import Layout from '@src/components/Common/Layout/Layout';
 import SkeletonMainList from './Skeleton/SkeletonMainList';
+import VideoItem from '@src/components/VideoList/VideoItem/VideoItem';
 
 interface MainPageProps {}
 
 const MainPage = ({}: MainPageProps) => {
-  const dispatch = useAppDispatch();
   const { data: musicCnt } = useGetSongCountQuery();
   const next = useRef(0);
   const musicsOrder = useMemo(() => {
@@ -45,7 +45,7 @@ const MainPage = ({}: MainPageProps) => {
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
           {musicLists &&
             musicLists.pages.map(page =>
-              page.pageLists.map((item, idx: any) => <MainBox item={item} />),
+              page.pageLists.map((item, idx: any) => <VideoItem item={item} />),
             )}
         </div>
         {isFetchingNextPage && <SkeletonMainList />}
