@@ -10,15 +10,18 @@ import Layout from '@src/components/Common/Layout/Layout';
 const Mypage = () => {
   const me = useIsLogin();
   const navigate = useNavigate();
-  const { data } = me && useProfile();
-  const { nickname, email } = useAppSelector(state => state.user);
+  const { data, refetch: refetchProfile } = useProfile();
 
   useEffect(() => {
     if (!me) {
       alert('로그인 해주세요.');
       navigate('/login');
+    } else {
+      refetchProfile();
     }
   }, []);
+
+  const { nickname, email } = useAppSelector(state => state.user);
 
   return (
     <Layout>
