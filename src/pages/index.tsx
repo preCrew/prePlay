@@ -42,7 +42,11 @@ const App = () => {
         />
         <Route
           path="/favorite"
-          element={<FavoritePage />}
+          element={
+            <Suspense fallback={<SkeletonMainList />}>
+              <FavoritePage />
+            </Suspense>
+          }
         />
         <Route
           path="/mypage"
@@ -62,7 +66,11 @@ const App = () => {
         />
         <Route
           path="/searchresult"
-          element={<SearchResultPage />}
+          element={
+            <Suspense fallback={<SkeletonMainList />}>
+              <SearchResultPage />{' '}
+            </Suspense>
+          }
         />
       </Routes>
     </>
