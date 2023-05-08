@@ -3,20 +3,22 @@ import {
   collection,
   addDoc,
   doc,
-  setDoc,
   query,
   where,
   getDocs,
 } from 'firebase/firestore';
-import {
-  QueryClient,
-  useMutation,
-  useQueryClient,
-} from '@tanstack/react-query';
-import { Tlike } from './useGetLike';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-const useAddLike = async ({ postId, me }: Tlike) => {
-  const likeData = [];
+import { TSongLists } from './useGetSongListsQuery';
+import useGetLike from './useGetLike';
+
+interface TLikeData {
+  post: TSongLists;
+  me: string;
+}
+
+const useAddLike = async ({ post, me }: TLikeData) => {
+  const likeData: any[] = [];
   let docId;
 
   try {
@@ -24,7 +26,7 @@ const useAddLike = async ({ postId, me }: Tlike) => {
 
     const q = query(
       likeRef,
-      where('postId', '==', postId),
+      where('data.id', '==', post.id),
       where('me', '==', me),
     );
     const querySnapshot = await getDocs(q);
@@ -42,7 +44,8 @@ const useAddLike = async ({ postId, me }: Tlike) => {
       await addDoc(collection(db, 'like'), {
         id,
         me,
-        postId,
+        data: post,
+        timestamp: new Date(),
       });
     }
   } catch (err) {
@@ -50,14 +53,17 @@ const useAddLike = async ({ postId, me }: Tlike) => {
   }
 };
 
-export default ({ postId, me }: Tlike) => {
+export default ({ post, me }: TLikeData) => {
   const queryClient = useQueryClient();
+  const { refetch: refetchGetLike } = useGetLike(post.id, me);
 
-  const addLike = useMutation(() => useAddLike({ postId, me }), {
-    onSuccess: () => {
+  const addLike = useMutation(() => useAddLike({ post, me }), {
+    onSuccess: data => {
+      console.log(data, '추가');
       // 다시 데이터 받아옴
-      queryClient.invalidateQueries();
-      queryClient.invalidateQueries(['like']);
+      // queryClient.invalidateQueries();
+      refetchGetLike();
+      //queryClient.invalidateQueries(['like', post.id]);
     },
     onError: error => {
       console.log(error);

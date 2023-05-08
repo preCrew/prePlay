@@ -9,11 +9,13 @@ import {
 } from 'firebase/firestore';
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
+import useGetLike from './useGetLike';
+import useIsLogin from './user/useIsLogin';
 
 const useDeleteLike = async (id: string) => {
   try {
     const commentRef = collection(db, 'like');
-    const q = query(commentRef, where('id', '==', `${id}`));
+    const q = query(commentRef, where('data.id', '==', `${id}`));
 
     const querySnapshot = await getDocs(q);
     let deleteValue;
@@ -28,14 +30,18 @@ const useDeleteLike = async (id: string) => {
   } catch (err) {}
 };
 
-export default () => {
+export default (id: string) => {
+  const me = useIsLogin();
   const queryClient = useQueryClient();
+  const { refetch: refetchGetLike } = useGetLike(id, me);
 
   return useMutation((id: string) => useDeleteLike(id), {
-    onSuccess: () => {
-      // 등록한 댓글 ui 뿌려주기(다시 데이터 받아옴)
-      queryClient.invalidateQueries();
-      queryClient.invalidateQueries(['like']);
+    onSuccess: (data, variable) => {
+      console.log('삭제', data);
+      refetchGetLike();
+      // console.log(data, variable);
+      // queryClient.invalidateQueries();
+      // queryClient.invalidateQueries(['like', variable]);
     },
     onError: err => {
       console.log(err);

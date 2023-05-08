@@ -34,6 +34,7 @@ const getSongLists = async (startIdx: number, lists: number[]) => {
 export default (startIdx = 0, lists: number[]) =>
   useInfiniteQuery(['songLists'], () => getSongLists(startIdx, lists), {
     cacheTime: Infinity,
+    staleTime: Infinity,
     suspense: true,
     getNextPageParam: lastPage => {
       if (lastPage.isLast) return undefined;

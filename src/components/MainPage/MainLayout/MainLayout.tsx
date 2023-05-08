@@ -8,7 +8,7 @@ const MainLayout = ({ children }: IMainLayoutProps) => {
   return (
     <>
       <Layout>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">{children}</div>
+        <div className="grid grid-cols-1 gap-7 sm:grid-cols-2">{children}</div>
       </Layout>
     </>
   );

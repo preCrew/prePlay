@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { RiHeart3Fill, RiHeart3Line } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,6 +6,7 @@ import useAddLike from '@src/hooks/useAddLike';
 import useDeleteLike from '@src/hooks/useDeleteLike';
 import useGetLike from '@src/hooks/useGetLike';
 import useIsLogin from '@src/hooks/user/useIsLogin';
+import { TSongLists } from '@src/hooks/useGetSongListsQuery';
 
 const heartIconStyle = {
   color: '#ff0000',
@@ -14,29 +15,34 @@ const heartIconStyle = {
 interface HeartProps {
   onClickHeart?: boolean;
   styleProperty?: string;
-  postId: string;
+  post: TSongLists;
 }
 
-const Heart = ({ onClickHeart, styleProperty, postId }: HeartProps) => {
+const Heart = ({ onClickHeart, styleProperty, post }: HeartProps) => {
   const me = useIsLogin();
-  const { data: meLike, refetch: refetchGetLike } = useGetLike(postId, me);
-  const { mutate: mustateAddLike } = useAddLike({ postId, me });
-  const { mutate: mustateDeletLike } = useDeleteLike();
+  const { data: meLike, refetch: refetchGetLike } = useGetLike(post.id, me);
+  const { mutate: mustateAddLike } = useAddLike({ post, me });
+  const { mutate: mustateDeletLike } = useDeleteLike(post.id);
 
   const heartOnIcon = <RiHeart3Fill {...heartIconStyle} />;
   const heartOffIcon = <RiHeart3Line {...heartIconStyle} />;
 
-  useEffect(() => {
-    if (me) refetchGetLike();
-  });
+  const [heartToggle, setHeratToggle] = useState(false);
 
-  const onClick = useCallback(() => {
+  useEffect(() => {
+    if (me) {
+      refetchGetLike();
+    }
+  }, [me]);
+
+  const onClick = () => {
     if (meLike?.length) {
-      mustateDeletLike(meLike?.[0].id as string);
+      mustateDeletLike(meLike?.[0].data.id as string);
       return;
     }
     mustateAddLike();
-  }, [meLike]);
+    console.log(meLike);
+  };
 
   return (
     <>
@@ -46,7 +52,8 @@ const Heart = ({ onClickHeart, styleProperty, postId }: HeartProps) => {
           className={styleProperty}
           onClick={onClick}
         >
-          {meLike?.length ? heartOnIcon : heartOffIcon}
+          {me ? (meLike?.length ? heartOnIcon : heartOffIcon) : heartOffIcon}
+          {}
         </button>
       </div>
     </>

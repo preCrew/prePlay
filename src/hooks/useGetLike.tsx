@@ -12,6 +12,7 @@ import {
   startAfter,
 } from 'firebase/firestore';
 import { useRef, useState } from 'react';
+import { TSongLists } from './useGetSongListsQuery';
 
 interface Tdata {
   postId: string;
@@ -19,9 +20,10 @@ interface Tdata {
 }
 
 export interface Tlike {
-  id?: string;
-  postId: string;
+  data: TSongLists;
+  id: string;
   me: string;
+  timestamp: any;
 }
 
 const useGetLike = async ({ postId, me }: Tdata) => {
@@ -31,7 +33,7 @@ const useGetLike = async ({ postId, me }: Tdata) => {
 
     const doc = query(
       likeRef,
-      where('postId', '==', postId),
+      where('data.id', '==', postId),
       where('me', '==', me),
     );
 
