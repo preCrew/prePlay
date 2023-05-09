@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Layout from '@src/components/Common/Layout/Layout';
 import FavoritList from '@src/components/Favorite/FavoriteList';
 import useIsLogin from '@src/hooks/user/useIsLogin';
+import MainLayout from '@src/components/MainPage/MainLayout/MainLayout';
 
 const FavoritePage = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const FavoritePage = () => {
     }
   }, []);
 
-  return <Layout>{me && <FavoritList />}</Layout>;
+  return <MainLayout>{me && <FavoritList />}</MainLayout>;
 };
 
 export default FavoritePage;

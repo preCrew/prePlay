@@ -2,15 +2,11 @@ import { useEffect, useMemo } from 'react';
 import { useRef } from 'react';
 
 import useGetSongCountQuery from '@src/hooks/useGetSongCountQuery';
-import useGetSongListsQuery, {
-  TSongLists,
-} from '@src/hooks/useGetSongListsQuery';
 import useInfinityScroll from '@src/hooks/useInfitityScroll';
-import MainBox from '@src/components/MainPage/MainBox';
-import { useAppDispatch } from '@src/store/store';
-import Layout from '@src/components/Common/Layout/Layout';
 import SkeletonMainList from './Skeleton/SkeletonMainList';
 import VideoItem from '@src/components/VideoList/VideoItem/VideoItem';
+import MainLayout from '@src/components/MainPage/MainLayout/MainLayout';
+import useGetSongListsQuery from '@src/hooks/useGetSongListsQuery';
 
 interface MainPageProps {}
 
@@ -41,15 +37,13 @@ const MainPage = ({}: MainPageProps) => {
 
   return (
     <>
-      <Layout>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-          {musicLists &&
-            musicLists.pages.map(page =>
-              page.pageLists.map((item, idx: any) => <VideoItem item={item} />),
-            )}
-        </div>
-        {isFetchingNextPage && <SkeletonMainList />}
-      </Layout>
+      <MainLayout>
+        {musicLists &&
+          musicLists.pages.map(page =>
+            page.pageLists.map((item, idx: any) => <VideoItem item={item} />),
+          )}
+      </MainLayout>
+      {isFetchingNextPage && <SkeletonMainList />}
     </>
   );
 };

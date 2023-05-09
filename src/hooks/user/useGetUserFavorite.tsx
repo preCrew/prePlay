@@ -51,7 +51,7 @@ const useGetUserFavorite = async ({ me, pageParam }: Tdata) => {
 
 export default (me: string) =>
   useInfiniteQuery(
-    ['likeList'],
+    ['like'],
     ({ pageParam = 0 }) => useGetUserFavorite({ me, pageParam }),
     {
       cacheTime: Infinity,
