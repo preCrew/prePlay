@@ -31,7 +31,7 @@ const Profile = () => {
       <TopBar />
       <form
         onSubmit={onSubmitNickName}
-        className="flex flex-col items-center justify-center h-[20vh] "
+        className="flex flex-col items-center justify-center h-[20vh] p-basic-top"
       >
         <input
           type="text"

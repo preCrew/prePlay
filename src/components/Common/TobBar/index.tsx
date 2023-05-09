@@ -10,9 +10,10 @@ const TopBar = () => {
   }, []);
 
   return (
-    <div className="p-3">
+    <div className="fixed w-full p-3 bg-white">
       <MdKeyboardArrowLeft
         fontSize="30px"
+        color="black"
         onClick={onClickBack}
       />
     </div>
