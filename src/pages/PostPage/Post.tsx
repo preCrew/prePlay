@@ -2,15 +2,13 @@ import { Suspense, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
+import YouTube from 'react-youtube';
 
-import { useAppSelector } from '@src/store/store';
 import CommentList from '@src/components/Comment';
 import CommentForm from '@src/components/Comment/CommentForm';
 import Heart from '@src/components/Common/Button/Heart/Heart';
 import { TSongLists } from '@src/hooks/useGetSongListsQuery';
 import useLoginWithGoogleQuery from '@src/hooks/useLoginWithGoogleQuery';
-import Layout from '@src/components/Common/Layout/Layout';
-import Header from '@src/components/Common/Layout/Header';
 import TopBar from '@src/components/Common/TobBar';
 
 const Post = () => {
@@ -22,6 +20,10 @@ const Post = () => {
 
   const { id } = useParams();
   const me = cookies.uid;
+
+  const opts = {
+    width: '100%',
+  };
 
   useEffect(() => {
     // 로그인한적 없으면 로그인
@@ -36,12 +38,10 @@ const Post = () => {
       <TopBar />
       <div className="p-basic-top">
         <article className="bg-black rounded-b-xl">
-          <div className="">
-            <img
-              className="object-cover w-full h-[unset]"
-              src={data.thumnail}
-            />
-          </div>
+          <YouTube
+            videoId={data.id}
+            opts={opts}
+          />
           <div className="relative pb-6 mx-4 mt-6 text-white ">
             <h3 className="w-11/12 mb-5 text-xl">{data.title}</h3>
             {/* <p className="mb-8 text-sm">트와이스</p> */}
