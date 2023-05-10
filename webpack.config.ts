@@ -1,8 +1,11 @@
 import path from 'path';
 import ReactRefreshPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
-import { Configuration as WebpackConfiguration } from 'webpack';
+import { Configuration as WebpackConfiguration, DefinePlugin } from 'webpack';
 import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
+
+import dotenv from 'dotenv';
+dotenv.config();
 
 interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
@@ -56,7 +59,13 @@ const webpackConfig: Configuration = {
       },
     ],
   },
-  plugins: [new ReactRefreshPlugin(), new ForkTsCheckerWebpackPlugin()],
+  plugins: [
+    new ReactRefreshPlugin(),
+    new ForkTsCheckerWebpackPlugin(),
+    new DefinePlugin({
+      'process.env': JSON.stringify(process.env),
+    }),
+  ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
@@ -67,6 +76,7 @@ const webpackConfig: Configuration = {
     devMiddleware: { publicPath: '/dist' },
     static: { directory: path.resolve(__dirname) },
     hot: true,
+    historyApiFallback: true, //존재하지 않는 url일경우 -> index.html
   },
 };
 

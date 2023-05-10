@@ -1,8 +1,10 @@
 node_modules/
 uploads/
-.vscode/
+# .vscode/
 .next/
 *.env
 .env.local
 *.csv
 react-emotion.pem
+.firebase/
+dist/
