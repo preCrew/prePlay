@@ -8,7 +8,7 @@ import {
 
 import useLoginWithGoogleQuery from '@src/hooks/useLoginWithGoogleQuery';
 import Layout from '@src/components/Common/Layout/Layout';
-import LoginButton from '@src/components/Common/Button/LoginButton/LoginButton';
+import LoginButton from '@src/components/Login/LoginButton/LoginButton';
 
 interface LoginPageProps {}
 
