@@ -6,10 +6,9 @@ import {
   NavigationType,
 } from 'react-router-dom';
 
-import LoginButton from '@src/components/Common/Button/LoginButton/LoginButton';
 import useLoginWithGoogleQuery from '@src/hooks/useLoginWithGoogleQuery';
 import Layout from '@src/components/Common/Layout/Layout';
-import { History, Update } from 'history';
+import LoginButton from '@src/components/Common/Button/LoginButton/LoginButton';
 
 interface LoginPageProps {}
 
