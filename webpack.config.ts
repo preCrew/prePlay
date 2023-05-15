@@ -11,9 +11,11 @@ interface Configuration extends WebpackConfiguration {
   devServer?: WebpackDevServerConfiguration;
 }
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 const webpackConfig: Configuration = {
   name: 'prePlay',
-  mode: 'development', //배포 production
+  mode: isProduction ? 'production' : 'development', //배포 production
   devtool: 'eval',
   resolve: {
     extensions: ['.js', '.jsx', '.tsx', '.ts'],
