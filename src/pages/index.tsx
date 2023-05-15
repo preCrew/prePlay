@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
+
+import useProfile from '@src/hooks/user/useProfile';
 
 import MainPage from './MainPage';
 import LoginPage from './LoginPage';
@@ -13,8 +14,18 @@ import SearchResultPage from './SearchPage/SearchResult';
 import Mypage from './Mypage';
 import SkeletonMainList from './MainPage/Skeleton/SkeletonMainList';
 import FavoritePage from './FevoritePage/FavoritePage';
+import useIsLogin from '@src/hooks/user/useIsLogin';
 
 const App = () => {
+  const me = useIsLogin();
+  const { data, refetch: refetchProfile } = useProfile();
+
+  useEffect(() => {
+    if (me) {
+      refetchProfile();
+    }
+  }, [me]);
+
   return (
     <>
       <Routes>
