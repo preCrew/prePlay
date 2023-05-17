@@ -30,7 +30,7 @@ const webpackConfig: Configuration = {
     rules: [
       {
         loader: 'babel-loader',
-        options: { plugins: ['react-refresh/babel'] },
+        options: { plugins: isProduction ? [] : ['react-refresh/babel'] },
       },
       {
         test: /\.tsx?$/,
