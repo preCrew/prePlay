@@ -10,7 +10,6 @@ import Layout from '@src/components/Common/Layout/Layout';
 const Mypage = () => {
   const me = useIsLogin();
   const navigate = useNavigate();
-  const { data } = me && useProfile();
   const { nickname, email } = useAppSelector(state => state.user);
 
   useEffect(() => {
@@ -22,7 +21,7 @@ const Mypage = () => {
 
   return (
     <Layout>
-      <div className="flex items-center justify-center text-white border-2 border-black rounded-full w-50 h-50 bg-primary1">
+      <div className="flex items-center justify-center text-white border border-black rounded-full text-24 w-50 h-50 bg-primary1">
         {nickname[0]}
       </div>
       <h2 className="relative mt-2">

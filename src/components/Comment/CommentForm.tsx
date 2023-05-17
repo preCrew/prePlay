@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import useAddComment from '@src/hooks/useAddComment';
+import { useAppSelector } from '@src/store/store';
 
 interface CommentProps {
   postId?: string;
@@ -9,6 +10,7 @@ interface CommentProps {
 const CommentForm = ({ postId, me }: CommentProps) => {
   const [inputValue, setInputValue] = useState('');
   const { addComment } = useAddComment({ postId, me, text: inputValue });
+  const { nickname } = useAppSelector(state => state.user);
   const onSubmit = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
@@ -25,7 +27,7 @@ const CommentForm = ({ postId, me }: CommentProps) => {
   return (
     <div className="px-4 pt-4 pb-8 mb-10 border rounded-basic border-primary1">
       <div className="mb-7">
-        <span className="">cdfkjdlfkgjdf@gmail.com</span>
+        <span className="">{nickname}</span>
       </div>
       <form
         className="relative"

@@ -1,0 +1,75 @@
+[debug] [2023-05-15T08:06:48.304Z] ----------------------------------------------------------------------
+[debug] [2023-05-15T08:06:48.304Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-05-15T08:06:48.305Z] CLI Version:   12.0.0
+[debug] [2023-05-15T08:06:48.305Z] Platform:      darwin
+[debug] [2023-05-15T08:06:48.305Z] Node Version:  v16.16.0
+[debug] [2023-05-15T08:06:48.306Z] Time:          Mon May 15 2023 17:06:48 GMT+0900 (대한민국 표준시)
+[debug] [2023-05-15T08:06:48.306Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-15T08:06:48.307Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-05-15T08:06:48.348Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-15T08:06:48.348Z] > authorizing via signed-in user (leechaeng2222@gmail.com)
+[debug] [2023-05-15T08:06:48.348Z] [iam] checking project preplay-355d9 for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2023-05-15T08:06:48.349Z] > refreshing access token with scopes: []
+[debug] [2023-05-15T08:06:48.349Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-05-15T08:06:48.349Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-05-15T08:06:48.593Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-05-15T08:06:48.593Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-05-15T08:06:48.624Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/preplay-355d9:testIamPermissions [none]
+[debug] [2023-05-15T08:06:48.625Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/preplay-355d9:testIamPermissions x-goog-quota-user=projects/preplay-355d9
+[debug] [2023-05-15T08:06:48.625Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/preplay-355d9:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2023-05-15T08:06:48.732Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-05-15T08:06:48.732Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2023-05-15T08:06:49.498Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/preplay-355d9:testIamPermissions 200
+[debug] [2023-05-15T08:06:49.498Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/preplay-355d9:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2023-05-15T08:06:49.500Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/preplay-355d9 [none]
+[debug] [2023-05-15T08:06:49.939Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/preplay-355d9 200
+[debug] [2023-05-15T08:06:49.939Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/preplay-355d9 {"projectId":"preplay-355d9","projectNumber":"260528451404","displayName":"preplay","name":"projects/preplay-355d9","resources":{"hostingSite":"preplay-355d9","storageBucket":"preplay-355d9.appspot.com","locationId":"asia-northeast3"},"state":"ACTIVE","etag":"1_fe160798-a9ef-4221-8b50-d12863a4e700"}
+[info] 
+[info] === Deploying to 'preplay-355d9'...
+[info] 
+[info] i  deploying storage, firestore, hosting 
+[debug] [2023-05-15T08:06:49.941Z] >>> [apiv2][query] GET https://appengine.googleapis.com/v1/apps/preplay-355d9 [none]
+[debug] [2023-05-15T08:06:50.181Z] <<< [apiv2][status] GET https://appengine.googleapis.com/v1/apps/preplay-355d9 200
+[debug] [2023-05-15T08:06:50.182Z] <<< [apiv2][body] GET https://appengine.googleapis.com/v1/apps/preplay-355d9 {"name":"apps/preplay-355d9","id":"preplay-355d9","authDomain":"gmail.com","locationId":"asia-northeast3","codeBucket":"staging.preplay-355d9.appspot.com","servingStatus":"SERVING","defaultHostname":"preplay-355d9.du.r.appspot.com","defaultBucket":"preplay-355d9.appspot.com","serviceAccount":"preplay-355d9@appspot.gserviceaccount.com","gcrDomain":"asia.gcr.io","databaseType":"CLOUD_FIRESTORE","featureSettings":{"splitHealthChecks":true,"useContainerOptimizedOs":true}}
+[info] i  firebase.storage: checking firestore.rules for compilation errors... 
+[debug] [2023-05-15T08:06:50.184Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/preplay-355d9:test [none]
+[debug] [2023-05-15T08:06:50.184Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/preplay-355d9:test [omitted]
+[debug] [2023-05-15T08:06:51.442Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/preplay-355d9:test 200
+[debug] [2023-05-15T08:06:51.442Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/preplay-355d9:test {}
+[info] ✔  firebase.storage: rules file firestore.rules compiled successfully 
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2023-05-15T08:06:51.444Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/preplay-355d9:test [none]
+[debug] [2023-05-15T08:06:51.444Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/preplay-355d9:test [omitted]
+[debug] [2023-05-15T08:06:52.630Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/preplay-355d9:test 200
+[debug] [2023-05-15T08:06:52.630Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/preplay-355d9:test {}
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2023-05-15T08:06:52.634Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/preplay-355d9/versions [none]
+[debug] [2023-05-15T08:06:52.634Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/preplay-355d9/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-05-15T08:06:54.013Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/preplay-355d9/versions 200
+[debug] [2023-05-15T08:06:54.014Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/preplay-355d9/versions {"name":"projects/260528451404/sites/preplay-355d9/versions/5a19488831713f02","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-05-15T08:06:54.015Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/preplay-355d9/releases pageSize=10&pageToken=
+[debug] [2023-05-15T08:06:54.519Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/preplay-355d9/releases 200
+[debug] [2023-05-15T08:06:54.520Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/preplay-355d9/releases {"releases":[{"name":"projects/preplay-355d9/releases/cloud.firestore","rulesetName":"projects/preplay-355d9/rulesets/74c398e9-c983-488e-b884-ddb32f1e3cc2","createTime":"2022-10-01T04:41:52.792952Z","updateTime":"2023-05-11T05:28:51.051706Z"},{"name":"projects/preplay-355d9/releases/firebase.storage/preplay-355d9.appspot.com","rulesetName":"projects/preplay-355d9/rulesets/45d11995-97e2-438d-9f39-ce1e5917ef4e","createTime":"2023-04-17T14:49:39.666346Z","updateTime":"2023-05-11T05:28:49.723499Z"}]}
+[debug] [2023-05-15T08:06:54.535Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/preplay-355d9/rulesets/45d11995-97e2-438d-9f39-ce1e5917ef4e [none]
+[debug] [2023-05-15T08:06:55.747Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/preplay-355d9/rulesets/45d11995-97e2-438d-9f39-ce1e5917ef4e 200
+[debug] [2023-05-15T08:06:55.747Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/preplay-355d9/rulesets/45d11995-97e2-438d-9f39-ce1e5917ef4e [omitted]
+[info] i  storage: latest version of firestore.rules already up to date, skipping upload... 
+[info] i  firestore: deploying indexes... 
+[debug] [2023-05-15T08:06:55.750Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/preplay-355d9/releases pageSize=10&pageToken=
+[debug] [2023-05-15T08:06:55.751Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/preplay-355d9/databases/(default)/collectionGroups/-/indexes [none]
+[debug] [2023-05-15T08:06:55.912Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/preplay-355d9/databases/(default)/collectionGroups/-/indexes 200
+[debug] [2023-05-15T08:06:55.912Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/preplay-355d9/databases/(default)/collectionGroups/-/indexes {"indexes":[{"name":"projects/preplay-355d9/databases/(default)/collectionGroups/comment/indexes/CICAgJim14AK","queryScope":"COLLECTION","fields":[{"fieldPath":"postId","order":"ASCENDING"},{"fieldPath":"timestamp","order":"ASCENDING"},{"fieldPath":"__name__","order":"ASCENDING"}],"state":"READY"},{"name":"projects/preplay-355d9/databases/(default)/collectionGroups/like/indexes/CICAgJjF9oIK","queryScope":"COLLECTION","fields":[{"fieldPath":"me","order":"ASCENDING"},{"fieldPath":"timestamp","order":"ASCENDING"},{"fieldPath":"__name__","order":"ASCENDING"}],"state":"READY"}]}
+[debug] [2023-05-15T08:06:55.913Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/preplay-355d9/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* [none]
+[debug] [2023-05-15T08:06:56.020Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/preplay-355d9/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* 200
+[debug] [2023-05-15T08:06:56.020Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/preplay-355d9/databases/(default)/collectionGroups/-/fields?filter=indexConfig.usesAncestorConfig=false OR ttlConfig:* {"fields":[{"name":"projects/preplay-355d9/databases/(default)/collectionGroups/__default__/fields/*","indexConfig":{"indexes":[{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"ASCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","order":"DESCENDING"}],"state":"READY"},{"queryScope":"COLLECTION","fields":[{"fieldPath":"*","arrayConfig":"CONTAINS"}],"state":"READY"}]}}]}
+[info] i  firestore: The following indexes are defined in your project but are not present in your firestore indexes file:
+	(comment) -- (postId,ASCENDING) (timestamp,ASCENDING) 
+	(like) -- (me,ASCENDING) (timestamp,ASCENDING)  
+[debug] [2023-05-15T08:06:56.939Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/preplay-355d9/releases 200
+[debug] [2023-05-15T08:06:56.940Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/preplay-355d9/releases {"releases":[{"name":"projects/preplay-355d9/releases/cloud.firestore","rulesetName":"projects/preplay-355d9/rulesets/74c398e9-c983-488e-b884-ddb32f1e3cc2","createTime":"2022-10-01T04:41:52.792952Z","updateTime":"2023-05-11T05:28:51.051706Z"},{"name":"projects/preplay-355d9/releases/firebase.storage/preplay-355d9.appspot.com","rulesetName":"projects/preplay-355d9/rulesets/45d11995-97e2-438d-9f39-ce1e5917ef4e","createTime":"2023-04-17T14:49:39.666346Z","updateTime":"2023-05-11T05:28:49.723499Z"}]}
+[debug] [2023-05-15T08:06:56.940Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/preplay-355d9/rulesets/74c398e9-c983-488e-b884-ddb32f1e3cc2 [none]
+[debug] [2023-05-15T08:06:58.123Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/preplay-355d9/rulesets/74c398e9-c983-488e-b884-ddb32f1e3cc2 200
+[debug] [2023-05-15T08:06:58.123Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/preplay-355d9/rulesets/74c398e9-c983-488e-b884-ddb32f1e3cc2 [omitted]
+[info] i  firestore: latest version of firestore.rules already up to date, skipping upload... 
