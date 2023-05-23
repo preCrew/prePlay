@@ -1,10 +1,9 @@
 # 🎧🎶prePlay🎵🎧
 
-<br/>
+### [👉🏻 배포](https://preplay-355d9.web.app/)
 
-### [👉🏻 자세히 보러가기](https://fixed-rubidium-143.notion.site/prePlay-66c0cffdefda4b6dbe6dec22db5ca81c)
+### [👉🏻 문서 자세히 보러가기](https://fixed-rubidium-143.notion.site/prePlay-66c0cffdefda4b6dbe6dec22db5ca81c)
 
-</br>
 </br>
 </br>
 
