@@ -26,11 +26,13 @@ npm run dev
 
 ### FrontEnd
 
-<img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
-<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
-<img src="https://img.shields.io/badge/reactquery-FF4154?style=for-the-badge&logo=reactquery&logoColor=white">
-<img src="https://img.shields.io/badge/reduxtookit-764ABC?style=for-the-badge&logo=redux&logoColor=white">
-<img src="https://img.shields.io/badge/tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white">
+<div style="display:flex;justify-content: space-between;">
+  <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
+  <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">
+  <img src="https://img.shields.io/badge/reactquery-FF4154?style=for-the-badge&logo=reactquery&logoColor=white">
+  <img src="https://img.shields.io/badge/reduxtookit-764ABC?style=for-the-badge&logo=redux&logoColor=white">
+  <img src="https://img.shields.io/badge/tailwindcss-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white">
+</div>
 
 <br/>
 
@@ -66,34 +68,40 @@ npm run dev
 ## 주요기능
 
 1. 로그인
+
    ![preplay1](https://github.com/preCrew/preTravel/assets/28029685/830062f2-f0a7-488c-939d-99feba4f3e44)
 
 </br>
 </br>
 
 2. 인피니트 스크롤
+
    ![preplay2](https://github.com/preCrew/preTravel/assets/28029685/7315df9d-a900-48c6-87c5-3114481a5203)
 
 </br>
 </br>
 
 3. 키워드 검색
+
    ![preplay3](https://github.com/preCrew/preTravel/assets/28029685/83ee50a7-33b2-4d49-bb69-bdc83fc299c9)
 
 </br>
 </br>
 
 4. 회원정보 수정
+
    ![May-21-2023 14-33-09](https://github.com/preCrew/preTravel/assets/28029685/bba545b8-f6f1-4ded-aa3e-58a323189563)
 
 </br>
 </br>
 
 5. 찜하기
+
    ![May-21-2023 14-34-37](https://github.com/preCrew/preTravel/assets/28029685/0c366a67-40a5-4bec-83d9-0902ce524537)
 
 </br>
 </br>
 
 6. 댓글 등록
+
    ![May-21-2023 14-36-57](https://github.com/preCrew/preTravel/assets/28029685/cdd08728-1ce0-481e-bb3e-edf76fc33dda)
